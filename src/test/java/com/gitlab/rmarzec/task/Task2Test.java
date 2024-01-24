@@ -1,16 +1,28 @@
 package com.gitlab.rmarzec.task;
 
-import com.gitlab.rmarzec.framework.utils.DriverFactory;
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.Test;
+import com.gitlab.rmarzec.base.TestBase;
+import com.gitlab.rmarzec.framework.pages.wikipedia.WikipediaPage;
+import org.testng.annotations.*;
 
+import static com.gitlab.rmarzec.framework.providers.UrlProvider.WIKIPEDIA;
 
+public class Task2Test extends TestBase {
+    @BeforeMethod
+    public void navigateToWiki() {
+        driver.get(WIKIPEDIA);
+    }
 
-public class Task2Test {
-    @Test
-    public void Task2Test(){
-        DriverFactory driverFactory = new DriverFactory();
-        WebDriver webDriver = driverFactory.initDriver();
-        
+    @Test(testName = "Task1Test1")
+    public void Task1Test1() {
+        at(WikipediaPage.class)
+                .expandLanguagesDropdown()
+                .displayLanguagesName();
+    }
+
+    @Test(testName = "Task1Test2")
+    public void Task1Test2() {
+        at(WikipediaPage.class)
+                .expandLanguagesDropdown()
+                .ternaryOperation();
     }
 }

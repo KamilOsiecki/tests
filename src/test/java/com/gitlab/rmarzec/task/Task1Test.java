@@ -1,20 +1,8 @@
 package com.gitlab.rmarzec.task;
 
-import com.gitlab.rmarzec.framework.utils.DriverFactory;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.testng.annotations.Test;
+import com.gitlab.rmarzec.base.TestBase;
 
-import java.util.List;
+public class Task1Test extends TestBase {
 
-
-public class Task1Test {
-
-    @Test
-    public void Task1Test(){
-        DriverFactory driverFactory = new DriverFactory();
-        WebDriver webDriver = driverFactory.initDriver();
-        webDriver.get("https://www.onet.pl/");
-    }
+    /* COMPLETED */
 }
