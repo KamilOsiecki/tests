@@ -27,19 +27,20 @@ public class WikipediaPage extends BasePage {
         return this;
     }
 
-    public void displayLanguagesName() {
+    public WikipediaPage displayLanguagesName() {
         waitForElementToBeVisible(listOfLanguages);
+        boolean foundEnglish = false;
         for (WebElement language : languagesList) {
-            if (language.getText().equals("English")) {
+            if (language.getText().equals("English") && !foundEnglish) {
                 System.out.println("Language: " + language.getText() + " URL: " + language.getAttribute("href"));
-            } else {
-                System.out.println("Language: " + language.getText());
-            }
+                foundEnglish = true;
+            } else if (!language.getText().equals("English")) System.out.println("Language: " + language.getText());
         }
+        return this;
     }
 
     /* I have added this method to show other possibility */
-    public void ternaryOperation() {
+    public WikipediaPage ternaryOperation() {
         waitForElementToBeVisible(listOfLanguages);
         for (WebElement language : languagesList) {
             String englishLanguage = "Language: " + language.getText() + " URL: " + language.getAttribute("href");
@@ -48,5 +49,6 @@ public class WikipediaPage extends BasePage {
             String message = language.getText().equals("English") ? englishLanguage : otherLanguage;
             System.out.println(message);
         }
+        return this;
     }
 }
